@@ -8,7 +8,7 @@ class ElasticSearcher
     result = Rubygem.__elasticsearch__.search(search_definition).page(@page)
     result.response # ES query is triggered here to allow fallback. avoids lazy loading done in the view
     [nil, result]
-  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Elasticsearch::Transport::Transport::Error => e
+  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, OpenSearch::Transport::Transport::Error => e
     result = Rubygem.legacy_search(@query).page(@page)
     [error_msg(e), result]
   end
@@ -16,7 +16,7 @@ class ElasticSearcher
   def api_search
     result = Rubygem.__elasticsearch__.search(search_definition(for_api: true)).page(@page)
     result.map(&:_source)
-  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Elasticsearch::Transport::Transport::Error
+  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, OpenSearch::Transport::Transport::Error
     Rubygem.legacy_search(@query).page(@page)
   end
 
@@ -24,7 +24,7 @@ class ElasticSearcher
     result = Rubygem.__elasticsearch__.search(suggestions_definition).page(@page)
     result = result.response.suggest[:completion_suggestion][0][:options]
     result.map { |gem| gem[:_source].name }
-  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Elasticsearch::Transport::Transport::Error
+  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, OpenSearch::Transport::Transport::Error
     Array(nil)
   end
 
@@ -97,7 +97,7 @@ class ElasticSearcher
   end
 
   def error_msg(error)
-    if error.is_a? Elasticsearch::Transport::Transport::Errors::BadRequest
+    if error.is_a? OpenSearch::Transport::Transport::Errors::BadRequest
       "Failed to parse: '#{@query}'. Falling back to legacy search."
     else
       Honeybadger.notify(error)
