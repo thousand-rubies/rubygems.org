@@ -20,7 +20,7 @@ class FastlyLogProcessorTest < ActiveSupport::TestCase
     }
     @job = FastlyLogProcessor.new("test-bucket", "fastly-fake.log")
     create(:gem_download)
-    Rubygem.__elasticsearch__.create_index! force: true
+    import_and_refresh
   end
 
   teardown do

@@ -5,7 +5,7 @@ class GemDownloadTest < ActiveSupport::TestCase
 
   setup do
     create(:gem_download, count: 0)
-    Rubygem.__elasticsearch__.create_index! force: true
+    import_and_refresh
   end
 
   context ".increment" do
