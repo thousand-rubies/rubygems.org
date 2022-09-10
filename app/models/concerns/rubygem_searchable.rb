@@ -2,30 +2,31 @@ module RubygemSearchable
   extend ActiveSupport::Concern
 
   included do
-    searchkick index_name: "rubygems-#{Rails.env}", settings: {
-      number_of_shards: 1,
-      number_of_replicas: 1,
-      analysis: {
-        analyzer: {
-          rubygem: {
-            type: "pattern",
-            pattern: "[\s#{Regexp.escape(Patterns::SPECIAL_CHARACTERS)}]+"
+    searchkick index_name: "rubygems-#{Rails.env}",
+      settings: {
+        number_of_shards: 1,
+        number_of_replicas: 1,
+        analysis: {
+          analyzer: {
+            rubygem: {
+              type: "pattern",
+              pattern: "[\s#{Regexp.escape(Patterns::SPECIAL_CHARACTERS)}]+"
+            }
           }
         }
+      },
+      mappings:  {
+        properties: {
+          name: { type: "text", analyzer: "rubygem",
+                  fields: { suggest: { analyzer: "simple", type: "text" }, unanalyzed: { type: "keyword", index: "true" } } },
+          summary: { type: "text", analyzer: "english", fields: { raw: { analyzer: "simple", type: "text" } } },
+          description: { type: "text", analyzer: "english", fields: { raw: { analyzer: "simple", type: "text" } } },
+          suggest: { type: "completion", contexts: { name: "yanked", type: "category" } },
+          yanked: { type: "boolean" },
+          downloads: { type: "integer" },
+          updated: { type: "date" }
+        }
       }
-    },
-    mappings:  {
-      properties: {
-        name: { type: "text", analyzer: "rubygem",
-                fields: { suggest: { analyzer: "simple", type: "text" }, unanalyzed: { type: "keyword", index: "true" } } },
-      summary: { type: "text", analyzer: "english", fields: { raw: { analyzer: "simple", type: "text" } } },
-      description: { type: "text", analyzer: "english", fields: { raw: { analyzer: "simple", type: "text" } } },
-      suggest: { type: "completion", contexts: { name: "yanked", type: "category" } },
-      yanked: { type: "boolean" },
-      downloads: { type: "integer" },
-      updated: { type: "date" }
-      }
-    }
 
     def search_data # rubocop:disable Metrics/MethodLength
       if (latest_version = versions.most_recent)

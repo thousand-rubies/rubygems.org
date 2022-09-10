@@ -1,6 +1,6 @@
 module ESHelper
   def import_and_refresh
-    Rubygem.reindex
+    Rubygem.searchkick_reindex
 
     # wait for indexing to finish
     Searchkick.client.cluster.health wait_for_status: "yellow"
@@ -17,7 +17,7 @@ module ESHelper
   end
 
   def get_response(id)
-    Rubygem.reindex
+    Rubygem.searchkick_index.refresh
     Searchkick.client.get index: "rubygems-#{Rails.env}", id: id
   end
 end

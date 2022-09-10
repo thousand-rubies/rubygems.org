@@ -8,7 +8,7 @@ class ElasticSearcher
     result = Rubygem.searchkick_search(body: search_definition.to_hash, page: @page, per_page: Kaminari.config.default_per_page)
     result.response # ES query is triggered here to allow fallback. avoids lazy loading done in the view
     [nil, result]
-  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Searchkick::Error => e
+  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Searchkick::Error, Elasticsearch::Transport::Transport::Error => e
     result = Rubygem.legacy_search(@query).page(@page)
     [error_msg(e), result]
   end
@@ -16,7 +16,7 @@ class ElasticSearcher
   def api_search
     result = Rubygem.searchkick_search(body: search_definition(for_api: true).to_hash, page: @page, per_page: Kaminari.config.default_per_page)
     result.response["hits"]["hits"].map { |hit| hit["_source"] }
-  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Searchkick::Error
+  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Searchkick::Error, Elasticsearch::Transport::Transport::Error
     Rubygem.legacy_search(@query).page(@page)
   end
 
@@ -24,7 +24,7 @@ class ElasticSearcher
     result = Rubygem.searchkick_search(body: suggestions_definition.to_hash, page: @page, per_page: Kaminari.config.default_per_page)
     result = result.response["suggest"]["completion_suggestion"][0]["options"]
     result.map { |gem| gem["_source"]["name"] }
-  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Searchkick::Error
+  rescue Faraday::ConnectionFailed, Faraday::TimeoutError, Searchkick::Error, Elasticsearch::Transport::Transport::Error
     Array(nil)
   end
 

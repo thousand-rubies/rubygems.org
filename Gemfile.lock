@@ -479,6 +479,7 @@ DEPENDENCIES
   delayed_job_active_record
   elasticsearch (~> 7.10.1)
   elasticsearch-dsl (~> 0.1.2)
+  elasticsearch-transport (~> 7.10.1)
   factory_bot_rails
   faraday_middleware-aws-sigv4 (~> 0.3)
   gravtastic

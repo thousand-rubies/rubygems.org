@@ -26,8 +26,7 @@ require "helpers/password_helpers"
 RubygemFs.mock!
 Aws.config[:stub_responses] = true
 
-Rubygem.searchkick_index.delete if Rubygem.searchkick_index.exists?
-Rubygem.searchkick_index.create
+Rubygem.searchkick_reindex(import: false)
 Searchkick.disable_callbacks
 
 class ActiveSupport::TestCase
