@@ -43,6 +43,7 @@ gem "rack-attack"
 gem "rqrcode"
 gem "rotp"
 gem "unpwn"
+gem "openssl", "~> 3.0.1"
 
 # Logging
 gem "lograge"
