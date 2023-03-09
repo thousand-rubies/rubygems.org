@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 7.0.0"
+gem "rails", "~> 7.0.4"
 gem "rails-i18n"
 
 gem "aws-sdk-s3"
@@ -19,7 +19,7 @@ gem "kaminari"
 gem "mail"
 gem "newrelic_rpm"
 gem "pg"
-gem "rack"
+gem "rack", ">= 2.2.6.3"
 gem "rack-utf8_sanitizer"
 gem "rbtrace", "~> 0.4.8"
 gem "rdoc"
@@ -62,7 +62,7 @@ group :development, :test do
 
   gem "brakeman", require: false
   gem "rubocop", "~> 1.23", require: false
-  gem "rubocop-rails", "~> 2.16", require: false
+  gem "rubocop-rails", "~> 2.16", ">= 2.16.0", require: false
   gem "rubocop-performance", "~> 1.12", require: false
   gem "rubocop-minitest", "~> 0.16", require: false
 end
@@ -74,7 +74,7 @@ end
 
 group :test do
   gem "minitest", require: false
-  gem "capybara", "~> 3.35"
+  gem "capybara", "~> 3.37", ">= 3.37.1"
   gem "launchy"
   gem "rack-test", require: "rack/test"
   gem "mocha", require: false
