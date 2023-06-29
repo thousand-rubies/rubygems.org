@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 7.0.0"
-gem "rails-i18n"
+gem "rails", "~> 7.0.5", ">= 7.0.5.1"
+gem "rails-i18n", ">= 7.0.6"
 
 gem "aws-sdk-s3"
 gem "aws-sdk-sqs"
@@ -14,7 +14,7 @@ gem "gravtastic"
 gem "high_voltage"
 gem "honeybadger"
 gem "http_accept_language"
-gem "jquery-rails"
+gem "jquery-rails", ">= 4.5.1"
 gem "kaminari"
 gem "mail"
 gem "newrelic_rpm"
