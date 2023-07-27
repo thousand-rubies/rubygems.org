@@ -45,7 +45,7 @@ gem "rotp"
 gem "unpwn"
 
 # Logging
-gem "lograge"
+gem "lograge", ">= 0.13.0"
 
 group :assets do
   gem "sassc-rails"
