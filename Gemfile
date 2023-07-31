@@ -80,7 +80,7 @@ group :test do
   gem "mocha", require: false
   gem "shoulda"
   gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "webdrivers", ">= 5.3.0"
   gem "simplecov", require: false
   gem "simplecov-cobertura", require: false
 end
