@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 7.0.0"
-gem "rails-i18n"
+gem "rails", "~> 7.0.7", ">= 7.0.7.1"
+gem "rails-i18n", ">= 7.0.6"
 
 gem "aws-sdk-s3"
 gem "aws-sdk-sqs"
@@ -14,7 +14,7 @@ gem "gravtastic"
 gem "high_voltage"
 gem "honeybadger"
 gem "http_accept_language"
-gem "jquery-rails"
+gem "jquery-rails", ">= 4.5.1"
 gem "kaminari"
 gem "mail"
 gem "newrelic_rpm"
@@ -32,7 +32,7 @@ gem "validates_formatting_of"
 gem "elasticsearch", "~> 7.10.1"
 gem "elasticsearch-api", "~> 7.10.1"
 gem "elasticsearch-transport", "~> 7.10.1"
-gem "elasticsearch-model", "~> 7.0"
+gem "elasticsearch-model", "~> 7.2", ">= 7.2.0"
 gem "elasticsearch-rails", "~> 7.0"
 gem "elasticsearch-dsl", "~> 0.1.2"
 gem "faraday_middleware-aws-sigv4", "~> 0.3"
@@ -45,7 +45,7 @@ gem "rotp"
 gem "unpwn"
 
 # Logging
-gem "lograge"
+gem "lograge", ">= 0.13.0"
 
 group :assets do
   gem "sassc-rails"
@@ -62,7 +62,7 @@ group :development, :test do
 
   gem "brakeman", require: false
   gem "rubocop", "~> 1.23", require: false
-  gem "rubocop-rails", "~> 2.16", require: false
+  gem "rubocop-rails", "~> 2.16", ">= 2.16.1", require: false
   gem "rubocop-performance", "~> 1.12", require: false
   gem "rubocop-minitest", "~> 0.16", require: false
 end
