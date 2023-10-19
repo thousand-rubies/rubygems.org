@@ -24,7 +24,7 @@ gem "rack-utf8_sanitizer"
 gem "rbtrace", "~> 0.4.8"
 gem "rdoc"
 gem "rest-client", require: "rest_client"
-gem "roadie-rails"
+gem "roadie-rails", ">= 3.1.0"
 gem "shoryuken", "~> 4.0", require: false
 gem "statsd-instrument", "~> 2.3.0"
 gem "unicorn", "~> 5.8.0"
