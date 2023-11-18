@@ -58,7 +58,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "toxiproxy", "~> 2.0.0"
   gem "webrick"
-  gem "factory_bot_rails"
+  gem "factory_bot_rails", ">= 6.3.0"
 
   gem "brakeman", require: false
   gem "rubocop", "~> 1.23", require: false
