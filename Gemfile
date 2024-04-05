@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 7.0.0"
-gem "rails-i18n"
+gem "rails", "~> 7.0.8", ">= 7.0.8.1"
+gem "rails-i18n", ">= 7.0.6"
 
 gem "aws-sdk-s3"
 gem "aws-sdk-sqs"
 gem "bootsnap"
-gem "clearance"
+gem "clearance", ">= 2.6.2"
 gem "dalli"
 gem "delayed_job"
 gem "delayed_job_active_record"
@@ -14,17 +14,17 @@ gem "gravtastic"
 gem "high_voltage"
 gem "honeybadger"
 gem "http_accept_language"
-gem "jquery-rails"
+gem "jquery-rails", ">= 4.5.1"
 gem "kaminari"
 gem "mail"
 gem "newrelic_rpm"
 gem "pg"
-gem "rack"
-gem "rack-utf8_sanitizer"
+gem "rack", ">= 2.2.8.1"
+gem "rack-utf8_sanitizer", ">= 1.8.0"
 gem "rbtrace", "~> 0.4.8"
-gem "rdoc"
+gem "rdoc", ">= 6.4.1.1"
 gem "rest-client", require: "rest_client"
-gem "roadie-rails"
+gem "roadie-rails", ">= 3.1.0"
 gem "shoryuken", "~> 4.0", require: false
 gem "statsd-instrument", "~> 2.3.0"
 gem "unicorn", "~> 5.8.0"
@@ -39,13 +39,13 @@ gem "faraday_middleware-aws-sigv4", "~> 0.3"
 gem "xml-simple"
 gem "compact_index", "~> 0.14.0"
 gem "sprockets-rails"
-gem "rack-attack"
+gem "rack-attack", ">= 6.7.0"
 gem "rqrcode"
-gem "rotp"
+gem "rotp", ">= 6.3.0"
 gem "unpwn"
 
 # Logging
-gem "lograge"
+gem "lograge", ">= 0.13.0"
 
 group :assets do
   gem "sassc-rails"
@@ -58,11 +58,11 @@ group :development, :test do
   gem "pry-byebug"
   gem "toxiproxy", "~> 2.0.0"
   gem "webrick"
-  gem "factory_bot_rails"
+  gem "factory_bot_rails", ">= 6.3.0"
 
   gem "brakeman", require: false
   gem "rubocop", "~> 1.23", require: false
-  gem "rubocop-rails", "~> 2.16", require: false
+  gem "rubocop-rails", "~> 2.16", ">= 2.16.1", require: false
   gem "rubocop-performance", "~> 1.12", require: false
   gem "rubocop-minitest", "~> 0.16", require: false
 end
@@ -74,13 +74,13 @@ end
 
 group :test do
   gem "minitest", require: false
-  gem "capybara", "~> 3.35"
+  gem "capybara", "~> 3.38", ">= 3.38.0"
   gem "launchy"
-  gem "rack-test", require: "rack/test"
+  gem "rack-test", ">= 2.1.0", require: "rack/test"
   gem "mocha", require: false
   gem "shoulda"
   gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "webdrivers", ">= 5.3.0"
   gem "simplecov", require: false
   gem "simplecov-cobertura", require: false
 end
