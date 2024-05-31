@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 7.0.0"
-gem "rails-i18n"
+gem "rails", "~> 7.0.4", ">= 7.0.4.1"
+gem "rails-i18n", ">= 7.0.6"
 
 gem "aws-sdk-s3"
 gem "aws-sdk-sqs"
 gem "bootsnap"
-gem "clearance"
+gem "clearance", ">= 2.6.2"
 gem "dalli"
 gem "delayed_job"
 gem "delayed_job_active_record"
@@ -14,7 +14,7 @@ gem "gravtastic"
 gem "high_voltage"
 gem "honeybadger"
 gem "http_accept_language"
-gem "jquery-rails"
+gem "jquery-rails", ">= 4.5.1"
 gem "kaminari"
 gem "mail"
 gem "newrelic_rpm"
@@ -24,7 +24,7 @@ gem "rack-utf8_sanitizer"
 gem "rbtrace", "~> 0.4.8"
 gem "rdoc"
 gem "rest-client", require: "rest_client"
-gem "roadie-rails"
+gem "roadie-rails", ">= 3.1.0"
 gem "shoryuken", "~> 4.0", require: false
 gem "statsd-instrument", "~> 2.3.0"
 gem "unicorn", "~> 5.8.0"
@@ -45,7 +45,7 @@ gem "rotp"
 gem "unpwn"
 
 # Logging
-gem "lograge"
+gem "lograge", ">= 0.13.0"
 
 group :assets do
   gem "sassc-rails"
@@ -58,7 +58,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "toxiproxy", "~> 2.0.0"
   gem "webrick"
-  gem "factory_bot_rails"
+  gem "factory_bot_rails", ">= 6.3.0"
 
   gem "brakeman", require: false
   gem "rubocop", "~> 1.23", require: false
@@ -74,13 +74,13 @@ end
 
 group :test do
   gem "minitest", require: false
-  gem "capybara", "~> 3.35"
+  gem "capybara", "~> 3.38", ">= 3.38.0"
   gem "launchy"
   gem "rack-test", require: "rack/test"
   gem "mocha", require: false
   gem "shoulda"
   gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "webdrivers", ">= 5.3.0"
   gem "simplecov", require: false
   gem "simplecov-cobertura", require: false
 end
