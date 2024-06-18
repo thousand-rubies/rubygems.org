@@ -74,7 +74,7 @@ end
 
 group :test do
   gem "minitest", require: false
-  gem "capybara", "~> 3.35"
+  gem "capybara", "~> 3.38", ">= 3.38.0"
   gem "launchy"
   gem "rack-test", require: "rack/test"
   gem "mocha", require: false
