@@ -61,7 +61,7 @@ group :development, :test do
   gem "factory_bot_rails"
 
   gem "brakeman", require: false
-  gem "rubocop", "~> 1.23", require: false
+  gem "rubocop", "~> 1.37", ">= 1.37.0", require: false
   gem "rubocop-rails", "~> 2.16", require: false
   gem "rubocop-performance", "~> 1.12", require: false
   gem "rubocop-minitest", "~> 0.16", require: false
