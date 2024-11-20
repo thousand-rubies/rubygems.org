@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 7.0.0"
-gem "rails-i18n"
+gem "rails-i18n", ">= 8.0.0"
 
 gem "aws-sdk-s3"
 gem "aws-sdk-sqs"
