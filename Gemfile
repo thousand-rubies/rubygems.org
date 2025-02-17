@@ -19,7 +19,7 @@ gem "kaminari"
 gem "mail"
 gem "newrelic_rpm"
 gem "pg"
-gem "rack"
+gem "rack", ">= 2.2.11"
 gem "rack-utf8_sanitizer"
 gem "rbtrace", "~> 0.4.8"
 gem "rdoc"
@@ -62,9 +62,9 @@ group :development, :test do
 
   gem "brakeman", require: false
   gem "rubocop", "~> 1.23", require: false
-  gem "rubocop-rails", "~> 2.16", require: false
-  gem "rubocop-performance", "~> 1.12", require: false
-  gem "rubocop-minitest", "~> 0.16", require: false
+  gem "rubocop-rails", "~> 2.30", ">= 2.30.0", require: false
+  gem "rubocop-performance", "~> 1.24", ">= 1.24.0", require: false
+  gem "rubocop-minitest", "~> 0.37", ">= 0.37.1", require: false
 end
 
 group :development do
