@@ -1,15 +1,15 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 7.0.0"
+gem "rails", "~> 7.1.5", ">= 7.1.5.2"
 gem "rails-i18n"
 
 gem "aws-sdk-s3"
 gem "aws-sdk-sqs"
 gem "bootsnap"
-gem "clearance"
+gem "clearance", ">= 2.6.2"
 gem "dalli"
 gem "delayed_job"
-gem "delayed_job_active_record"
+gem "delayed_job_active_record", ">= 4.1.8"
 gem "gravtastic"
 gem "high_voltage"
 gem "honeybadger"
